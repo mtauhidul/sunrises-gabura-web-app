@@ -1,0 +1,33 @@
+.statusButtons button img {
+    max-width: 24px;
+    height: 24px;
+}
+
+.statusButtons {
+    width: 58px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.statusButtons button {
+    background: none;
+    width: 24px;
+    padding: 0;
+    height: 24px;
+    border: none;
+    border-radius: 50%;
+}
+
+.statusButtons button:hover {
+    background: none;
+}
+
+.statusButtons button:active,
+.statusButtons button:focus {
+    background: none;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}

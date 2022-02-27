@@ -1,0 +1,100 @@
+.contactContainer {
+    min-height: 60vh;
+    padding: 8vh 10px;
+}
+
+.contactWrapper {
+    max-width: 80%;
+    margin: 0 auto;
+    overflow: hidden;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    background-color: #c5ccd3;
+    border-radius: 4px;
+}
+
+.contactWrapper h2 {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    font-style: normal;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 40px 25px 5px 25px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contactLeft {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #c5ccd3;
+}
+
+.contactLeft img {
+    max-width: 70%;
+    margin: 0 auto;
+}
+
+.contactLeft small {
+    font-family: Josefin Sans;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.6;
+    position: relative;
+    letter-spacing: normal;
+    color: #000;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    text-align: center;
+}
+
+.contactRight {
+    padding: 30px;
+    background-color: #c5ccd3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contactRight form {
+    display: flex;
+    flex-direction: column;
+    align-items: space-between;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.contactRight form input,
+textarea {
+    width: 100%;
+    margin-bottom: 20px;
+    min-height: 40px;
+    padding: 3px 10px;
+    background-color: #eef3fa;
+    border: none;
+    border: 1px solid #d7dfeb;
+}
+
+.contactRight form input[type='submit'] {
+    background-color: #4f81bd;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 0px !important;
+    min-height: 42px;
+}
+
+.contactRight form input[type='submit']:hover {
+    background-color: #3c6ca7;
+}

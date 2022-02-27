@@ -1,0 +1,84 @@
+.aboutContainer {
+    min-height: 77vh;
+
+}
+
+.aboutWrapper {
+    width: 100%;
+    box-sizing: border-box;
+    justify-content: space-between !important;
+    text-align: center;
+}
+
+.aboutWrapper h3 {
+    font-family: Josefin Sans;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    color: #fff;
+    font-size: 72px;
+    width: 100%;
+    margin-top: -100px;
+    text-transform: capitalize;
+    ;
+}
+
+.aboutWrapper p {
+    font-family: Josefin Sans;
+    font-size: 23.5px;
+    font-weight: 400;
+    line-height: 1.6;
+    position: relative;
+    letter-spacing: normal;
+    color: #000;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    display: flex;
+    text-align: justify;
+    margin-top: 20px;
+}
+
+
+
+
+.aboutColLeft {
+    border: 0px none black;
+    border-radius: 28px;
+    padding: 20px;
+    max-width: 95%;
+    margin: 10px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 80vw;
+}
+
+.aboutColRight {
+    border: 0px none black;
+    min-height: 70vh !important;
+    width: 100%;
+    box-sizing: border-box;
+    background-image:
+        linear-gradient(rgba(31, 31, 32, 0.7), rgba(31, 31, 32, 0.6)), url(../../assets/images/vision.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    min-height: 45vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (max-width: 600px) {
+    .aboutColLeft {
+        max-width: 98%;
+    }
+}

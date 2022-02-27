@@ -1,0 +1,54 @@
+.process {
+    padding: 10px;
+}
+
+.process h2 {
+    text-align: center;
+    color: #53954b;
+    font-size: 32px;
+    font-family: Josefin Sans;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.process p {
+    margin-top: 0;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #2b2b2b;
+    font-family: Josefin Sans;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.6;
+    position: relative;
+    letter-spacing: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+}
+
+.process .Cards {
+    margin: 0 auto !important;
+    width: 100%;
+    max-width: 990px;
+    justify-content: space-between;
+}
+
+.process .Cards .card img {
+    max-width: 160px;
+    margin: 15px auto;
+}
+
+.process .Cards .card {
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+    border: none;
+    margin: 15px auto;
+}

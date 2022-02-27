@@ -1,0 +1,40 @@
+.eContainer {
+    padding: 50px 10px;
+}
+
+.eWrapper {
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.eText {
+    padding: 10px;
+}
+
+.eText p {
+    font-family: Josefin Sans;
+    font-size: 21px;
+    font-weight: 400;
+    line-height: 1.6;
+    position: relative;
+    letter-spacing: normal;
+    color: #000;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    display: flex;
+    text-align: justify;
+}
+
+.eImg {
+    padding: 10px;
+}
+
+.eImg img {
+    max-width: 100%;
+    border-radius: 8px;
+}

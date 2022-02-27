@@ -1,0 +1,7 @@
+.notFound {
+    background-image: url(../../assets/images/notfound.jpeg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    min-height: 89.5vh;
+}

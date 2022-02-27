@@ -1,0 +1,40 @@
+.profileContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 50px;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    min-height: 87vh;
+}
+
+.profileWrapper {
+    font-family: 'Josefin Sans', sans-serif;
+    padding: 65px 50px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid lightgrey;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 500px;
+    background-color: skyblue;
+    border-radius: 8px;
+    max-height: 60vh;
+}
+
+.profileWrapper h2 {
+    border-bottom: 2px solid lightgrey;
+    text-align: center;
+    font-weight: bold;
+    margin: 0 auto;
+}
+
+.profileWrapper h5 {
+    margin-top: 20px;
+}
+
+.profileWrapper h5 strong {
+    margin-left: 10px;
+}

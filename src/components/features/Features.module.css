@@ -1,0 +1,46 @@
+.featuresContainer {
+    text-align: center;
+    padding: 6vw 10px;
+}
+
+.featuresContainer h2 {
+    font-size: 32px;
+    font-family: Josefin Sans;
+    font-weight: 400;
+    line-height: 1.2;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.featuresContainer .cardGroup {
+    width: 100%;
+    max-width: 980px;
+    justify-content: space-between;
+    margin: 50px auto;
+}
+
+.featuresContainer .cardGroup .card {
+    background-color: #53954b;
+    text-align: left;
+    padding: 20px;
+    width: 100%;
+    max-width: 280px;
+    border-radius: 16px;
+    color: #ecf0f1 !important;
+    font-family: 'Josefin Sans', sans-serif;
+    margin: 30px auto;
+}
+
+.featuresContainer .cardGroup #specialCard {
+    background-color: #2e5644;
+}
+
+.featuresContainer .card hr {
+    background-color: #ecf0f1;
+    border: none;
+    height: 2px;
+}
+
+.featuresContainer .cardGroup .card img {
+    width: 80px;
+}

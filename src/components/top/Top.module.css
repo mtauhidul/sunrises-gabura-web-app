@@ -1,0 +1,18 @@
+.topWrapper {
+    min-height: 80px;
+    background-color: #28578f;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.topWrapper h1 {
+    font-family: Josefin Sans;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #fff;
+    font-size: 42px;
+    text-transform: capitalize;
+    margin-bottom: 0px;
+}
