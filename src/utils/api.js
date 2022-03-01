@@ -1,7 +1,17 @@
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
 import 'firebase/compat/storage';
-import { deleteDoc, doc, getDoc } from 'firebase/firestore';
+import {
+  addDoc,
+  arrayRemove,
+  arrayUnion,
+  collection,
+  deleteDoc,
+  doc,
+  getDoc,
+  getDocs,
+  updateDoc,
+} from 'firebase/firestore';
 import toast from 'react-hot-toast';
 import { firebaseConfig } from './firebase.config';
 
@@ -15,86 +25,111 @@ const errorToast = () => toast.error('Error');
 const loading = () => toast.loading('Loading...');
 const dismiss = () => toast.dismiss();
 
-// Data Saving Function (POST)
-export const addData = async (type, data) => {
+// Add Data to Collection
+export const addData = async (coll, data) => {
   loading();
-  const userRef = db.collection(type);
-  try {
-    const res = await userRef.add(data);
+  const docRef = await addDoc(collection(db, coll), data);
+  if (docRef.id !== undefined) {
     dismiss();
     success();
-    console.log(res);
-    return res;
-  } catch (error) {
+  } else {
     dismiss();
     errorToast();
-    return error.message;
   }
 };
 
-// Login Function (GET + PUT)
-export const login = async (type, data) => {
-  loading();
-  try {
-    const snapshot = await db.collection(type).get();
-    dismiss();
-    success();
-    return snapshot;
-  } catch (error) {
-    dismiss();
-    errorToast();
-    return error.message;
+// Login with GET
+export const login = async (coll, data) => {
+  let document = {};
+  const querySnapshot = await getDocs(collection(db, coll));
+  querySnapshot.forEach((doc) => {
+    const checkingEmail = doc.data().Email;
+    const checkingPass = doc.data().Password;
+    console.log(doc.data());
+    if (checkingEmail === data.Email && checkingPass === data.Password) {
+      dismiss();
+      success();
+      window.sessionStorage.setItem('isAuthenticated', true);
+      window.sessionStorage.setItem('token', doc.id);
+      window.sessionStorage.setItem('type', coll);
+      doc.data().id = doc.id;
+      document = doc.data();
+      return document;
+    } else {
+      dismiss();
+      errorToast();
+      return false;
+    }
+  });
+  return document;
+};
+
+// Get Single Document
+export const getData = async (coll, id) => {
+  const docRef = doc(db, coll, id);
+  const docSnap = await getDoc(docRef);
+  let document = {};
+  if (docSnap.exists()) {
+    docSnap.data().id = docSnap.id;
+    document = docSnap.data();
+    return document;
+  } else {
+    console.log('No such document!');
   }
 };
 
-// Fetch Data (GET)
-export const getData = async (type, id) => {
-  try {
-    const snapshot = await db
-      .collection(type === 'user' ? 'users' : 'authors')
-      .doc(id)
-      .get();
-    return snapshot.data();
-  } catch (error) {
-    return error.message;
-  }
+// Add a New Ebook
+export const addEbook = async (coll, id, data) => {
+  console.log(coll, id, data);
+  const arrayRef = doc(db, coll, id);
+
+  const response = await updateDoc(arrayRef, {
+    books: arrayUnion(data),
+  });
+  return response;
 };
 
-// Update Data (PUT)
-export const updateData = async (type, data) => {
-  loading();
-  const updateRef = db.collection(type).doc(data.id);
-  try {
-    const response = await updateRef.update(data);
-    dismiss();
-    success();
-    return response;
-  } catch (error) {
-    dismiss();
-    errorToast();
-    return error.message;
-  }
+// Remove a Ebook
+export const removeEbook = async (coll, id, data) => {
+  console.log(coll, id, data);
+
+  const arrayRef = doc(db, coll, id);
+
+  const response = await updateDoc(arrayRef, {
+    books: arrayRemove(data),
+  });
+  return response;
 };
 
-// Fetch Data (GET)
+// Update Status
+export const updateStatus = async (coll, id, data) => {
+  const statusRef = doc(db, coll, id);
+
+  await updateDoc(statusRef, {
+    Status: 'Active',
+  });
+};
+
+// Get All Data
 export const getAllBooks = async () => {
-  try {
-    const snapshot = await db.collection('author').get();
-    return snapshot;
-  } catch (error) {
-    return error.message;
-  }
+  let ebooks = [];
+  const querySnapshot = await getDocs(collection(db, 'author'));
+  querySnapshot.forEach((doc) => {
+    doc.data().books.map((book) => ebooks.push(book));
+    return ebooks;
+  });
+  return ebooks;
 };
 
 // Get A Single document
-export const getEbook = async (type, id) => {
-  const docRef = doc(db, type, id);
+export const getEbook = async (coll, id) => {
+  const docRef = doc(db, coll, id);
+  const docSnap = await getDoc(docRef);
 
-  try {
-    const docSnap = await getDoc(docRef);
+  if (docSnap.exists()) {
     return docSnap.data();
-  } catch (error) {
-    return error.message;
+  } else {
+    return false;
   }
 };
 
@@ -168,32 +203,6 @@ export const getAllMessages = async () => {
 };
 
 // Delete doc from collection
-export const deleteData = async (collection, id) => {
-  loading();
-  try {
-    const response = await deleteDoc(doc(db, collection, id));
-    dismiss();
-    success();
-    return response;
-  } catch (error) {
-    dismiss();
-    errorToast();
-    return error.message;
-  }
-};
-
-// Add new Contact
-export const newContact = async (data) => {
-  loading();
-  const userRef = db.collection('contact');
-  try {
-    const res = await userRef.add(data);
-    dismiss();
-    success();
-    return res;
-  } catch (error) {
-    dismiss();
-    errorToast();
-    return error.message;
-  }
+export const deleteData = async (coll, id) => {
+  await deleteDoc(doc(db, coll, id));
 };

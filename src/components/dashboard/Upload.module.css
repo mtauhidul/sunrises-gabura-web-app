@@ -34,3 +34,10 @@
     font-size: 18px;
     padding: 5px;
 }
+
+#selectMenu {
+    padding: 10px;
+    width: 100%;
+    border: none;
+
+}

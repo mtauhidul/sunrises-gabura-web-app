@@ -3,7 +3,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import MailImg from '../../assets/images/mail.png';
 import Top from '../../components/top/Top';
-import { newContact } from '../../utils/api';
+import { addData } from '../../utils/api';
 import styles from './Contact.module.css';
 
 const Contact = () => {
@@ -13,7 +13,7 @@ const Contact = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = async (data) => {
-    const response = await newContact(data);
+    const response = await addData('contact', data);
     console.log(response);
   };
   console.log(errors);

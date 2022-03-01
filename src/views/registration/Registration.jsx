@@ -12,11 +12,10 @@ const Registration = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) =>
-    addData(id, {
-      ...data,
-      books: [],
-    });
+  const onSubmit = (data) => {
+    data.books = [];
+    addData(id, data);
+  };
 
   console.log(errors);
   return (

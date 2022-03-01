@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import styles from './Hero.module.css';
 
 const Hero = ({ texts }) => {
-  console.log(texts);
   return (
     <div className={styles.heroWrapper}>
       <img src={texts?.bg} alt='Hero' />

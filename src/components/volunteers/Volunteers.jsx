@@ -2,13 +2,12 @@ import React from 'react';
 import { Button, Table } from 'react-bootstrap';
 import ConfirmIcon from '../../assets/images/confirm.svg';
 import RejectIcon from '../../assets/images/reject.svg';
-import { deleteData, updateData } from '../../utils/api';
+import { deleteData, updateStatus } from '../../utils/api';
 import styles from './Volunteers.module.css';
 
 const Volunteers = ({ volunteers, getVolunteers }) => {
-  const updateStatus = async (data) => {
-    data.Status = 'Active';
-    await updateData('volunteer', data);
+  const updateState = async (data) => {
+    await updateStatus('volunteer', data.id, 'Active');
     getVolunteers();
   };
 
@@ -50,7 +49,7 @@ const Volunteers = ({ volunteers, getVolunteers }) => {
                   <div className={styles.statusButtons}>
                     <Button
                       onClick={() => {
-                        updateStatus(volunteer);
+                        updateState(volunteer);
                       }}>
                       <img src={ConfirmIcon} alt='' />
                     </Button>

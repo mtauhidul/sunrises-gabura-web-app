@@ -5,7 +5,7 @@ import { GlobalContext } from '../../App';
 
 const MyBooks = () => {
   const [auth, setAuth] = useContext(GlobalContext);
-  console.log(auth.books);
+  console.log(auth);
   return (
     <Container fluid style={{ minHeight: '87vh', padding: '0' }}>
       <Table striped bordered hover>

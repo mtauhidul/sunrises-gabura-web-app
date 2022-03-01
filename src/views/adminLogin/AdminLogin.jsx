@@ -9,27 +9,22 @@ import styles from './AdminLogin.module.css';
 const AdminLogin = () => {
   const navigate = useNavigate();
   const [auth, setAuth] = useContext(GlobalContext);
-  const id = 'admin';
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
   const onSubmit = async (data) => {
-    const snapshot = await login('admin', data);
-    snapshot.forEach((doc) => {
-      console.log(doc);
-      if (
-        doc.data().email === data.email &&
-        doc.data().password === data.password
-      ) {
-        setAuth({ ...doc.data(), id: doc.id });
-        window.sessionStorage.setItem('isAuthenticated', true);
-        window.sessionStorage.setItem('token', doc.id);
-        window.sessionStorage.setItem('type', id);
-        return navigate(`/admin`);
-      }
-    });
+    window.sessionStorage.clear();
+    const response = await login('admin', data);
+    console.log(response);
+    if (response) {
+      setAuth(response);
+      console.log(response);
+      return navigate(`/admin`);
+    } else {
+      return false;
+    }
   };
   console.log(errors);
   console.log(auth);

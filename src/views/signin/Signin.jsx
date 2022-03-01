@@ -17,20 +17,15 @@ const Signin = () => {
   } = useForm();
   const onSubmit = async (data) => {
     window.sessionStorage.clear();
-    const snapshot = await login(id, data);
-    snapshot.forEach((doc) => {
-      console.log(doc);
-      if (
-        doc.data().email === data.email &&
-        doc.data().password === data.password
-      ) {
-        setAuth({ ...doc.data(), id: doc.id });
-        window.sessionStorage.setItem('isAuthenticated', true);
-        window.sessionStorage.setItem('token', doc.id);
-        window.sessionStorage.setItem('type', id);
-        return navigate(`/dashboard/${id}`);
-      }
-    });
+    const response = await login(id, data);
+    console.log(response);
+    if (response) {
+      setAuth(response);
+      console.log(response);
+      return navigate(`/dashboard/${id}`);
+    } else {
+      return false;
+    }
   };
   console.log(errors);
   console.log(auth);

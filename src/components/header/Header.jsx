@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
+import { GlobalContext } from '../../App';
 import Logo from '../../assets/images/logo.png';
 import styles from './Header.module.css';
 
 const Header = () => {
+  const [auth, setAuth] = useContext(GlobalContext);
   const navigate = useNavigate();
   const isAuthenticated = window.sessionStorage.getItem('isAuthenticated');
   const type = window.sessionStorage.getItem('type');
   const logOut = () => {
     window.sessionStorage.clear();
+    setAuth({});
     navigate(`/`);
   };
   return (
