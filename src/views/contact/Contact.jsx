@@ -15,10 +15,10 @@ const Contact = () => {
   } = useForm();
   const onSubmit = async (data) => {
     const response = await addData('contact', data);
-    console.log(response);
+    // console.log(response);
     reset();
   };
-  console.log(errors);
+  // console.log(errors);
   return (
     <div>
       <Top text='Contact' />

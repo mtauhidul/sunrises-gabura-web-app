@@ -53,10 +53,10 @@ const Admin = () => {
     getMessages();
     getBooks();
   }, []);
-  console.log(users);
-  console.log(authors);
-  console.log(volunteers);
-  console.log(books);
+  // console.log(users);
+  // console.log(authors);
+  // console.log(volunteers);
+  // console.log(books);
   return (
     <Container fluid className={styles.admin}>
       <TopNav setTab={setTab} />

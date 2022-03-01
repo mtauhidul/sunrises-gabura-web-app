@@ -17,20 +17,20 @@ const Process = () => {
           <Card.Img variant='top' src={Process1Img} />
           <Card.Body>
             <Card.Text>
-              We accept donations from a variety of sources.
+              We accept ebook donations from a variety of publishers.
             </Card.Text>
           </Card.Body>
         </Card>
         <Card className={styles.card}>
           <Card.Img variant='top' src={Process2Img} />
           <Card.Body>
-            <Card.Text>We identify qualified clients.</Card.Text>
+            <Card.Text>We identify people who actually need help</Card.Text>
           </Card.Body>
         </Card>
         <Card className={styles.card}>
           <Card.Img variant='top' src={Process3Img} />
           <Card.Body>
-            <Card.Text>We provide transportation service.</Card.Text>
+            <Card.Text>We provide free ebook resources to people.</Card.Text>
           </Card.Body>
         </Card>
       </CardGroup>

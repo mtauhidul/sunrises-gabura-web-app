@@ -7,8 +7,7 @@ const Books = ({ authors, books, getBooks }) => {
     const author = authors.find((author) =>
       author.books.map((book) => book === data)
     );
-    const response = await removeEbook('author', author.id, data);
-    console.log(response);
+    await removeEbook('author', author.id, data);
     getBooks();
   };
   return (

@@ -16,11 +16,11 @@ const Registration = () => {
   const onSubmit = async (data) => {
     data.books = [];
     const response = await addData(id, data);
-    console.log(response);
+    // console.log(response);
     reset();
   };
 
-  console.log(errors);
+  // console.log(errors);
   return (
     <Container fluid className={styles.registration}>
       <form onSubmit={handleSubmit(onSubmit)}>

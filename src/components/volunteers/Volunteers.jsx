@@ -45,7 +45,7 @@ const Volunteers = ({ volunteers, getVolunteers }) => {
                     alignItems: 'center',
                     justifyContent: 'space-between',
                   }}>
-                  {volunteer?.Status}{' '}
+                  {volunteer?.Status}
                   <div className={styles.statusButtons}>
                     <Button
                       onClick={() => {
@@ -63,7 +63,7 @@ const Volunteers = ({ volunteers, getVolunteers }) => {
                 </td>
               ) : (
                 <td style={{ color: 'green' }}>
-                  {volunteer?.Status}{' '}
+                  {volunteer?.Status}
                   <Button
                     size='sm'
                     style={{ marginLeft: '20px' }}

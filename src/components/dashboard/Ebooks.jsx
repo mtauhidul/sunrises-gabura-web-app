@@ -22,13 +22,10 @@ const Ebooks = () => {
       book?.title?.toLowerCase().includes(key.toLowerCase()) ||
       book?.writer?.toLowerCase().includes(key.toLowerCase())
   );
-  console.log(key);
-  console.log(filteredBooks);
 
   useEffect(() => {
     getAllEbooks();
   }, []);
-  console.log(ebooks);
   return (
     <Container fluid style={{ minHeight: '87vh' }}>
       <br />
@@ -151,8 +148,7 @@ const Ebooks = () => {
                         href={book?.url}
                         download
                         rel='noreferrer'>
-                        {' '}
-                        Download{' '}
+                        Download
                       </a>
                     </td>
                   </tr>
@@ -178,8 +174,7 @@ const Ebooks = () => {
                         href={book?.url}
                         download
                         rel='noreferrer'>
-                        {' '}
-                        Download{' '}
+                        Download
                       </a>
                     </td>
                   </tr>

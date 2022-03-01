@@ -18,17 +18,17 @@ const Signin = () => {
   const onSubmit = async (data) => {
     window.sessionStorage.clear();
     const response = await login(id, data);
-    console.log(response);
+    // console.log(response);
     if (response) {
       setAuth(response);
-      console.log(response);
+      // console.log(response);
       return navigate(`/dashboard/${id}`);
     } else {
       return false;
     }
   };
-  console.log(errors);
-  console.log(auth);
+  // console.log(errors);
+  // console.log(auth);
   return (
     <Container fluid className={styles.registration}>
       <form onSubmit={handleSubmit(onSubmit)}>

@@ -54,9 +54,8 @@ const Upload = () => {
               const addBook = async () => {
                 const authorId = window.sessionStorage.getItem('token');
 
-                const response = await addEbook(id, authorId, ebookObj);
+                await addEbook(id, authorId, ebookObj);
 
-                console.log(response);
                 const res = await getData('author', authorId);
                 setAuth(res);
               };
@@ -64,8 +63,6 @@ const Upload = () => {
             });
           }
         );
-
-      console.log(response);
     }
   };
 

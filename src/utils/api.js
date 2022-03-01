@@ -46,7 +46,6 @@ export const login = async (coll, data) => {
   querySnapshot.forEach((doc) => {
     const checkingEmail = doc.data().Email;
     const checkingPass = doc.data().Password;
-    console.log(doc.data());
     if (checkingEmail === data.Email && checkingPass === data.Password) {
       dismiss();
       success();
@@ -80,14 +79,13 @@ export const getData = async (coll, id) => {
   } else {
     dismiss();
     errorToast();
-    console.log('No such document!');
   }
 };
 
 // Add a New Ebook
 export const addEbook = async (coll, id, data) => {
   loading();
-  console.log(coll, id, data);
+  // console.log(coll, id, data);
   const arrayRef = doc(db, coll, id);
 
   const response = await updateDoc(arrayRef, {
@@ -100,7 +98,7 @@ export const addEbook = async (coll, id, data) => {
 
 // Remove a Ebook
 export const removeEbook = async (coll, id, data) => {
-  console.log(coll, id, data);
+  // console.log(coll, id, data);
 
   const arrayRef = doc(db, coll, id);
 

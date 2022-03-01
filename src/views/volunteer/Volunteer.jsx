@@ -17,10 +17,10 @@ const Volunteer = () => {
   const onSubmit = async (data) => {
     data.Status = 'Pending';
     const response = await addData('volunteer', data);
-    console.log(response);
+    // console.log(response);
     reset();
   };
-  console.log(errors);
+  // console.log(errors);
   return (
     <Container fluid className={styles.volunteerContainer}>
       <Top text='Volunteer' />
