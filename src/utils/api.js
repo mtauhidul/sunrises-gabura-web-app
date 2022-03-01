@@ -93,10 +93,8 @@ export const addEbook = async (coll, id, data) => {
   const response = await updateDoc(arrayRef, {
     books: arrayUnion(data),
   });
-  if (response) {
-    dismiss();
-    success();
-  }
+  dismiss();
+  success();
   return response;
 };
 
@@ -109,10 +107,8 @@ export const removeEbook = async (coll, id, data) => {
   const response = await updateDoc(arrayRef, {
     books: arrayRemove(data),
   });
-  if (response) {
-    dismiss();
-    success();
-  }
+  dismiss();
+  success();
   return response;
 };
 
@@ -124,13 +120,9 @@ export const updateStatus = async (coll, id, data) => {
   const response = await updateDoc(statusRef, {
     Status: 'Active',
   });
-  if (response) {
-    dismiss();
-    success();
-  } else {
-    dismiss();
-    errorToast();
-  }
+  dismiss();
+  success();
+  return response;
 };
 
 // Get All Data
@@ -235,8 +227,7 @@ export const getAllMessages = async () => {
 export const deleteData = async (coll, id) => {
   loading();
   const response = await deleteDoc(doc(db, coll, id));
-  if (response) {
-    dismiss();
-    success();
-  }
+  dismiss();
+  success();
+  return response;
 };
