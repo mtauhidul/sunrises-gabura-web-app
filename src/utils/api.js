@@ -40,6 +40,7 @@ export const addData = async (coll, data) => {
 
 // Login with GET
 export const login = async (coll, data) => {
+  loading();
   let document = {};
   const querySnapshot = await getDocs(collection(db, coll));
   querySnapshot.forEach((doc) => {
@@ -66,26 +67,36 @@ export const login = async (coll, data) => {
 
 // Get Single Document
 export const getData = async (coll, id) => {
+  loading();
   const docRef = doc(db, coll, id);
   const docSnap = await getDoc(docRef);
   let document = {};
   if (docSnap.exists()) {
+    dismiss();
+    success();
     docSnap.data().id = docSnap.id;
     document = docSnap.data();
     return document;
   } else {
+    dismiss();
+    errorToast();
     console.log('No such document!');
   }
 };
 
 // Add a New Ebook
 export const addEbook = async (coll, id, data) => {
+  loading();
   console.log(coll, id, data);
   const arrayRef = doc(db, coll, id);
 
   const response = await updateDoc(arrayRef, {
     books: arrayUnion(data),
   });
+  if (response) {
+    dismiss();
+    success();
+  }
   return response;
 };
 
@@ -98,16 +109,28 @@ export const removeEbook = async (coll, id, data) => {
   const response = await updateDoc(arrayRef, {
     books: arrayRemove(data),
   });
+  if (response) {
+    dismiss();
+    success();
+  }
   return response;
 };
 
 // Update Status
 export const updateStatus = async (coll, id, data) => {
+  loading();
   const statusRef = doc(db, coll, id);
 
-  await updateDoc(statusRef, {
+  const response = await updateDoc(statusRef, {
     Status: 'Active',
   });
+  if (response) {
+    dismiss();
+    success();
+  } else {
+    dismiss();
+    errorToast();
+  }
 };
 
 // Get All Data
@@ -118,17 +141,23 @@ export const getAllBooks = async () => {
     doc.data().books.map((book) => ebooks.push(book));
     return ebooks;
   });
+
   return ebooks;
 };
 
 // Get A Single document
 export const getEbook = async (coll, id) => {
+  loading();
   const docRef = doc(db, coll, id);
   const docSnap = await getDoc(docRef);
 
   if (docSnap.exists()) {
+    dismiss();
+    success();
     return docSnap.data();
   } else {
+    dismiss();
+    errorToast();
     return false;
   }
 };
@@ -204,5 +233,10 @@ export const getAllMessages = async () => {
 
 // Delete doc from collection
 export const deleteData = async (coll, id) => {
-  await deleteDoc(doc(db, coll, id));
+  loading();
+  const response = await deleteDoc(doc(db, coll, id));
+  if (response) {
+    dismiss();
+    success();
+  }
 };

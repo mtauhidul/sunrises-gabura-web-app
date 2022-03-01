@@ -11,12 +11,14 @@ const Volunteer = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
   const onSubmit = async (data) => {
     data.Status = 'Pending';
     const response = await addData('volunteer', data);
     console.log(response);
+    reset();
   };
   console.log(errors);
   return (

@@ -10,11 +10,13 @@ const Contact = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
   const onSubmit = async (data) => {
     const response = await addData('contact', data);
     console.log(response);
+    reset();
   };
   console.log(errors);
   return (

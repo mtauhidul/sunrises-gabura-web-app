@@ -10,11 +10,14 @@ const Registration = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     data.books = [];
-    addData(id, data);
+    const response = await addData(id, data);
+    console.log(response);
+    reset();
   };
 
   console.log(errors);
