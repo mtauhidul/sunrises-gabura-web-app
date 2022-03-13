@@ -57,7 +57,6 @@ export const login = async (coll, data) => {
       return document;
     } else {
       dismiss();
-      errorToast();
       return false;
     }
   });
