@@ -2,7 +2,7 @@ import firebase from 'firebase/compat/app';
 import 'firebase/compat/storage';
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
 import React, { useContext, useState } from 'react';
-import { Container } from 'react-bootstrap';
+import { Container, ProgressBar } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import uuid from 'react-uuid';
 import { GlobalContext } from '../../App';
@@ -20,13 +20,14 @@ const Upload = () => {
   const [writer, setWriter] = useState('');
   const [category, setCategory] = useState('');
   const { id } = useParams();
+  const [uploaded, setUploaded] = useState('');
 
   const storeFile = async () => {
     if (file !== null) {
       const storageRef = ref(storage, `${file.name}`);
       const uploadTask = uploadBytesResumable(storageRef, file);
 
-      const response = await storage
+      await storage
         .ref(`/${file.name}`)
         .put(file)
         .on(
@@ -34,7 +35,15 @@ const Upload = () => {
           (snapshot) => {
             const progress =
               (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-            return progress;
+            setUploaded(Math.round(progress));
+            console.log(progress);
+            if (progress === 100) {
+              setFile('');
+              setWriter('');
+              setCategory('');
+              document.getElementById('writer').value = '';
+              document.getElementById('ebookFile').value = '';
+            }
           },
           (error) => {
             return error;
@@ -45,7 +54,7 @@ const Upload = () => {
                 title: file.name,
                 writer: writer,
                 category: category,
-                size: file.size,
+                size: Math.round(file.size),
                 date: new Date().toISOString().slice(0, 10),
                 url: downloadURL,
                 id: uuid(),
@@ -70,8 +79,16 @@ const Upload = () => {
     <Container className={styles.upload} fluid>
       <div>
         <h2>Ebook Upload</h2>
-        <br />
+        {uploaded && (
+          <ProgressBar
+            className={styles.ProgressBar}
+            now={uploaded}
+            label={`${uploaded}%`}
+          />
+        )}
+
         <input
+          id='ebookFile'
           resource='true'
           className={styles.uploadBtnWrapper}
           type='file'
@@ -92,11 +109,16 @@ const Upload = () => {
         />
         <br />
         <select
+          className='selectMenu'
           id={styles.selectMenu}
           onChange={(e) => {
             setCategory(e.target.value);
           }}
           name='category'>
+          <option value='none' selected disabled hidden>
+            Select a category
+          </option>
+
           <option value='Arts'>Arts</option>
           <option value='Astronomy'>Astronomy</option>
           <option value='Biography & Autobiography'>

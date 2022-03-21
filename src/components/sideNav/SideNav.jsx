@@ -38,6 +38,13 @@ const SideNav = ({ setTab }) => {
           </Nav.Link>
         </Nav.Item>
       )}
+      {id === 'author' && (
+        <Nav.Item>
+          <Nav.Link onClick={() => setTab(5)} eventKey='link-5'>
+            Upload Multiple
+          </Nav.Link>
+        </Nav.Item>
+      )}
     </Nav>
   );
 };

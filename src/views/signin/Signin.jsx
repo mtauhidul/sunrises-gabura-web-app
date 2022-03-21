@@ -45,7 +45,6 @@ const Signin = () => {
           placeholder='Password'
           {...register('Password', {
             required: true,
-            pattern: /^[A-Za-z]\w{7,14}$/i,
           })}
         />
 

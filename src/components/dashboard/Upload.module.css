@@ -41,3 +41,7 @@
     border: none;
 
 }
+
+.ProgressBar {
+    height: 100px !important;
+}

@@ -4,3 +4,17 @@ body {
     min-height: 100vh;
     padding: 0;
 }
+
+.Upload_ProgressBar__A3q6P.progress {
+    height: 80px !important;
+    font-size: 40px 20px;
+    padding: 10px;
+}
+
+div.progress-bar {
+    height: 50px !important;
+    padding: 10px !important;
+    font-weight: bold;
+    color: darkblue;
+    background: white !important;
+}

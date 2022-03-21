@@ -13,10 +13,11 @@ const Registration = () => {
     reset,
     formState: { errors },
   } = useForm();
+  console.log(errors);
   const onSubmit = async (data) => {
     data.books = [];
     const response = await addData(id, data);
-    // console.log(response);
+
     reset();
   };
 
@@ -41,7 +42,6 @@ const Registration = () => {
           placeholder='Password'
           {...register('Password', {
             required: true,
-            pattern: /^[A-Za-z]\w{7,14}$/i,
           })}
         />
 
@@ -50,8 +50,6 @@ const Registration = () => {
           placeholder='Phone'
           {...register('Phone', {
             required: true,
-            minLength: 6,
-            maxLength: 12,
           })}
         />
         {id === 'author' && (
