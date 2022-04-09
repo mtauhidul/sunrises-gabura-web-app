@@ -92,6 +92,7 @@ export const addEbook = async (coll, id, data) => {
   });
   dismiss();
   success();
+  console.log(response);
   return response;
 };
 

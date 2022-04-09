@@ -46,8 +46,7 @@ const UploadMultiple = () => {
         },
         async () => {
           await storage
-            .ref('files')
-            .child(file.name)
+            .ref(file.name)
             .getDownloadURL()
             .then((url) => {
               const ebookObj = {
