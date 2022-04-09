@@ -45,7 +45,7 @@ const Header = () => {
             <Link className='nav-link' to='/contact'>
               Contact
             </Link>
-            {isAuthenticated ? (
+            {isAuthenticated && (
               <Button
                 onClick={() => logOut()}
                 type='button'
@@ -53,23 +53,6 @@ const Header = () => {
                 className='btn btn-primary'>
                 Logout
               </Button>
-            ) : (
-              <Link
-                type='button'
-                id={styles.loginBtn}
-                className='btn btn-primary'
-                to='/admin'>
-                Admin
-              </Link>
-            )}
-            {type === 'admin' && (
-              <Link
-                type='button'
-                id={styles.loginBtn}
-                className='btn btn-primary'
-                to='/admin'>
-                Admin
-              </Link>
             )}
           </Nav>
         </Navbar.Collapse>
