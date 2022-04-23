@@ -1,6 +1,8 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
+import VolImg1 from '../../assets/images/vol1.jpg';
+import VolImg2 from '../../assets/images/vol2.jpg';
 import EAuthor from '../../components/eAuthor/EAuthor';
 import EUser from '../../components/eUser/EUser';
 import Top from '../../components/top/Top';
@@ -26,11 +28,13 @@ const Volunteer = () => {
       <Top text='Volunteer' />
       <br />
       <EAuthor
+        img={VolImg1}
         headerOne='Volunteer'
         text="Volunteering keeps you in regular contact with others and helps you develop a solid support system, which in turn protects you against stress and depression when you're going through challenging times. Working with pets and other animals has also been shown to improve mood and reduce stress and anxiety."
       />
       <br />
       <EUser
+        img={VolImg2}
         headerTwo='Volunteer'
         text='Volunteering encourages young people to think of others and become compassionate young adults. It is the perfect way to discover something you may be really good at as you develop a new skill. Volunteering brings together a diverse range of people from all walks of life.'
       />

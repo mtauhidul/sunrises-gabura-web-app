@@ -3,12 +3,12 @@ import { Col, Container, Row } from 'react-bootstrap';
 import SideImg from '../../assets/images/euser.jpg';
 import styles from './EUser.module.css';
 
-const EUser = ({ headerTwo, text }) => {
+const EUser = ({ headerTwo, text, img }) => {
   return (
     <Container className={styles.eContainer}>
       <Row className={styles.eWrapper}>
         <Col className={styles.eImg} md={5}>
-          <img src={SideImg} alt='E User Img' />
+          <img src={img ? img : SideImg} alt='E User Img' />
         </Col>
         <Col className={styles.eText} md={7}>
           <h4>{headerTwo}</h4>

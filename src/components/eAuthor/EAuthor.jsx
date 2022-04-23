@@ -3,7 +3,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 import SideImg from '../../assets/images/eauthor.jpg';
 import styles from './EAuthor.module.css';
 
-const EAuthor = ({ headerOne, text }) => {
+const EAuthor = ({ headerOne, text, img }) => {
   return (
     <Container className={styles.eContainer}>
       <Row className={styles.eWrapper}>
@@ -22,7 +22,7 @@ const EAuthor = ({ headerOne, text }) => {
           )}
         </Col>
         <Col className={styles.eImg} md={5}>
-          <img src={SideImg} alt='E Author Img' />
+          <img src={img ? img : SideImg} alt='E Author Img' />
         </Col>
       </Row>
     </Container>
