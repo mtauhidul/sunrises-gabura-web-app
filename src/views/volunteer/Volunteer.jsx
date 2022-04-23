@@ -25,9 +25,15 @@ const Volunteer = () => {
     <Container fluid className={styles.volunteerContainer}>
       <Top text='Volunteer' />
       <br />
-      <EAuthor headerOne='Volunteer' />
+      <EAuthor
+        headerOne='Volunteer'
+        text="Volunteering keeps you in regular contact with others and helps you develop a solid support system, which in turn protects you against stress and depression when you're going through challenging times. Working with pets and other animals has also been shown to improve mood and reduce stress and anxiety."
+      />
       <br />
-      <EUser headerTwo='Volunteer' />
+      <EUser
+        headerTwo='Volunteer'
+        text='Volunteering encourages young people to think of others and become compassionate young adults. It is the perfect way to discover something you may be really good at as you develop a new skill. Volunteering brings together a diverse range of people from all walks of life.'
+      />
       <br />
       <Container className={styles.volunteerWrapper}>
         <form onSubmit={handleSubmit(onSubmit)}>

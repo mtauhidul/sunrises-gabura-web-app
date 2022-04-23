@@ -3,7 +3,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 import SideImg from '../../assets/images/euser.jpg';
 import styles from './EUser.module.css';
 
-const EUser = ({ headerTwo }) => {
+const EUser = ({ headerTwo, text }) => {
   return (
     <Container className={styles.eContainer}>
       <Row className={styles.eWrapper}>
@@ -12,14 +12,18 @@ const EUser = ({ headerTwo }) => {
         </Col>
         <Col className={styles.eText} md={7}>
           <h4>{headerTwo}</h4>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed alias
-            eaque quasi praesentium blanditiis ipsa dolor non rerum
-            exercitationem voluptatem eum temporibus hic, odio debitis voluptate
-            quaerat, nobis dolores labore doloremque, placeat consequuntur ipsam
-            voluptas voluptates! Natus, itaque vel. Sed itaque labore dolor
-            quibusdam? Sed.
-          </p>
+          {text ? (
+            <p>{text}</p>
+          ) : (
+            <p>
+              Reading is important because it develops our thoughts, gives us
+              endless knowledge and lessons while keeping our minds active.
+              Books can hold and keep all kinds of information, stories,
+              thoughts and feelings unlike anything else in this world. The
+              importance of a book to help us learn and understand things cannot
+              be underestimated.
+            </p>
+          )}
         </Col>
       </Row>
     </Container>

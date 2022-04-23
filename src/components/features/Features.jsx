@@ -11,38 +11,36 @@ const Features = () => {
       <h2>Targets of Sunrises Gabura</h2>
       <CardGroup className={styles.cardGroup}>
         <Card className={styles.card}>
-          <Card.Img variant='top' src={Feature1Img} />
+          <Card.Img variant='top' src={Feature2Img} />
           <Card.Body>
-            <Card.Title>Economical Growth</Card.Title>
+            <Card.Title>Our Inspiration</Card.Title>
             <hr />
             <Card.Text>
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This card has even longer content
-              than the first to show that equal height action.
+              Our enlightened old generation is our inspiration.
             </Card.Text>
           </Card.Body>
         </Card>
         <Card className={styles.card} id={styles.specialCard}>
-          <Card.Img variant='top' src={Feature2Img} />
+          <Card.Img variant='top' src={Feature1Img} />
           <Card.Body>
-            <Card.Title>Proper Education</Card.Title>
+            <Card.Title>Enough Earning</Card.Title>
             <hr />
             <Card.Text>
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This card has even longer content
-              than the first to show that equal height action.
+              The coastal region namely Gabura plays a big role in the economy
+              of Bangladesh. Export of Shrimp and white fish contributes to the
+              national income directly and keeping the wheel of the country’s
+              economy moving.
             </Card.Text>
           </Card.Body>
         </Card>
         <Card className={styles.card}>
           <Card.Img variant='top' src={Feature3Img} />
           <Card.Body>
-            <Card.Title>Better Health</Card.Title>
+            <Card.Title>Better Environment</Card.Title>
             <hr />
             <Card.Text>
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This card has even longer content
-              than the first to show that equal height action.
+              we firmly believe the biodiversity of coastal region and Sundarban
+              would be saved from extinction.
             </Card.Text>
           </Card.Body>
         </Card>

@@ -34,7 +34,7 @@ const Header = () => {
               About Us
             </Link>
             <Link className='nav-link' to='/vision'>
-              Vision
+              Problems
             </Link>
             <Link className='nav-link' to='/e_library'>
               E-Library

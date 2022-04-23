@@ -9,8 +9,7 @@ import styles from './Process.module.css';
 const Process = () => {
   return (
     <div className={styles.process}>
-      <h2>Our Process</h2>
-      <p>We do everything for you in 3 simple steps!</p>
+      <h2>What we do</h2>
 
       <CardGroup className={styles.Cards}>
         <Card className={styles.card}>
