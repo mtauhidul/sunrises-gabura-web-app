@@ -28,6 +28,7 @@ const dismiss = () => toast.dismiss();
 // Add Data to Collection
 export const addData = async (coll, data) => {
   loading();
+  console.log(coll, data);
   const docRef = await addDoc(collection(db, coll), data);
   if (docRef.id !== undefined) {
     dismiss();
@@ -210,6 +211,23 @@ export const getAllMessages = async () => {
     const documents = [];
     snapshot.forEach((doc) => {
       delete doc.data().Password;
+      const data = doc.data();
+      data.id = doc.id;
+      documents.push(data);
+      return documents;
+    });
+    return documents;
+  } catch (error) {
+    return error.message;
+  }
+};
+
+// Get all notices
+export const getAllNotices = async () => {
+  try {
+    const snapshot = await firebase.firestore().collection('notices').get();
+    const documents = [];
+    snapshot.forEach((doc) => {
       const data = doc.data();
       data.id = doc.id;
       documents.push(data);

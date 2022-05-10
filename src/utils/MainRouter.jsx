@@ -10,6 +10,7 @@ import Dashboard from '../views/dashboard/Dashboard';
 import Elibrary from '../views/elibrary/Elibrary';
 import Home from '../views/home/Home';
 import Notfound from '../views/notfound/Notfound';
+import Notices from '../views/notices/Notices';
 import Policy from '../views/policy/Policy';
 import Registration from '../views/registration/Registration';
 import Signin from '../views/signin/Signin';
@@ -29,6 +30,7 @@ const MainRouter = () => {
         <Route path='/policy' element={<Policy />} />
         <Route path='/vision' element={<Vision />} />
         <Route path='/volunteer' element={<Volunteer />} />
+        <Route path='/notices' element={<Notices />} />
         <Route path='/e_library' element={<Elibrary />} />
         <Route path='/registration/:id' element={<Registration />} />
         <Route path='/login/:id' element={<Signin />} />

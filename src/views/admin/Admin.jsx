@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import { Container } from 'react-bootstrap';
+import { Button, Container, Modal } from 'react-bootstrap';
 import Authors from '../../components/authors/Authors';
 import Books from '../../components/books/Books';
 import Messages from '../../components/messages/Messages';
+import Notices from '../../components/notices/Notices';
 import TopNav from '../../components/topNav/TopNav';
 import Users from '../../components/users/Users';
 import Volunteers from '../../components/volunteers/Volunteers';
 import {
+  addData,
   getAllAuthors,
   getAllBooks,
   getAllMessages,
+  getAllNotices,
   getAllUsers,
   getAllVolunteers,
 } from '../../utils/api';
@@ -22,6 +25,10 @@ const Admin = () => {
   const [volunteers, setVolunteers] = useState([]);
   const [messages, setMessages] = useState([]);
   const [books, setBooks] = useState([]);
+  const [notices, setNotices] = useState([]);
+  const [notice, setNotice] = useState({});
+
+  const [show, setShow] = useState(false);
 
   const getUsers = async () => {
     const users = await getAllUsers();
@@ -46,12 +53,36 @@ const Admin = () => {
     setBooks(books);
   };
 
+  const getNotices = async () => {
+    const docs = await getAllNotices();
+    setNotices(docs);
+  };
+
+  function padTo2Digits(num) {
+    return num.toString().padStart(2, '0');
+  }
+
+  function formatDate(date) {
+    return [
+      date.getFullYear(),
+      padTo2Digits(date.getMonth() + 1),
+      padTo2Digits(date.getDate()),
+    ].join('-');
+  }
+
+  const submitNotice = () => {
+    addData('notices', notice);
+    setNotice({});
+    setShow(false);
+  };
+
   useEffect(() => {
     getUsers();
     getAuthors();
     getVolunteers();
     getMessages();
     getBooks();
+    getNotices();
   }, []);
   // console.log(users);
   // console.log(authors);
@@ -69,6 +100,46 @@ const Admin = () => {
       {tab === 5 && (
         <Books authors={authors} books={books} getBooks={getBooks} />
       )}
+      {tab === 6 && (
+        <Notices
+          setShow={setShow}
+          authors={authors}
+          books={notices}
+          getNotices={getNotices}
+        />
+      )}
+      <Modal
+        style={{ width: '100%' }}
+        show={show}
+        onHide={() => setShow(false)}
+        dialogClassName='modal-90w'
+        aria-labelledby='example-custom-modal-styling-title'>
+        <Modal.Header closeButton>
+          <Modal.Title id='example-custom-modal-styling-title'>
+            New notice
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <textarea
+            onChange={(e) =>
+              setNotice({
+                notice: e.target.value,
+                date: formatDate(new Date()),
+              })
+            }
+            name=''
+            id=''
+            cols='30'
+            rows='10'></textarea>
+          <br />
+          <Button
+            onClick={() => submitNotice()}
+            style={{ width: '100%', height: '40px' }}
+            type='submit'>
+            Submit
+          </Button>
+        </Modal.Body>
+      </Modal>
     </Container>
   );
 };

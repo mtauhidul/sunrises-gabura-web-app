@@ -34,6 +34,11 @@ const TopNav = ({ setTab }) => {
           Books
         </Nav.Link>
       </Nav.Item>
+      <Nav.Item>
+        <Nav.Link onClick={() => setTab(6)} eventKey='link-6'>
+          Notices
+        </Nav.Link>
+      </Nav.Item>
     </Nav>
   );
 };
